@@ -30,7 +30,13 @@ export default function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1 className="logo">silod</h1>
+        <div className="logo-wrapper">
+          <h1 className="logo">
+            <span className="logo-silo">silo</span><span className="logo-d">d</span>
+          </h1>
+          <div className="logo-glow"></div>
+        </div>
+        <p className="tagline">your brain, persisted</p>
       </header>
       <FilterTabs current={filter} onChange={setFilter} />
       <SearchBar onSearch={setSearch} />
