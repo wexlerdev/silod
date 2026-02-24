@@ -11,6 +11,11 @@ async function migrate() {
       completed_at TIMESTAMPTZ
     );
   `);
+
+  await pool.query(`ALTER TABLE items ADD COLUMN IF NOT EXISTS title TEXT`);
+  await pool.query(`ALTER TABLE items ADD COLUMN IF NOT EXISTS due_date DATE`);
+  await pool.query(`ALTER TABLE items ADD COLUMN IF NOT EXISTS tags TEXT[] DEFAULT '{}'`);
+
   console.log("Migration complete: items table ready");
   await pool.end();
 }

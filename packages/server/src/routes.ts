@@ -6,8 +6,9 @@ const router: RouterType = Router();
 router.get("/items", async (req, res) => {
   const filter = (req.query.filter as string) || "active";
   const q = req.query.q as string | undefined;
+  const due = req.query.due as string | undefined;
 
-  let query = "SELECT id, content, starred, created_at, completed_at FROM items";
+  let query = "SELECT id, content, title, due_date, tags, starred, created_at, completed_at FROM items";
   const conditions: string[] = [];
   const params: string[] = [];
 
@@ -25,7 +26,15 @@ router.get("/items", async (req, res) => {
 
   if (q) {
     params.push(`%${q}%`);
-    conditions.push(`content ILIKE $${params.length}`);
+    conditions.push(`(content ILIKE $${params.length} OR title ILIKE $${params.length})`);
+  }
+
+  if (due === "overdue") {
+    conditions.push("due_date < CURRENT_DATE");
+    conditions.push("completed_at IS NULL");
+  } else if (due === "week") {
+    conditions.push("due_date BETWEEN CURRENT_DATE AND CURRENT_DATE + interval '7 days'");
+    conditions.push("completed_at IS NULL");
   }
 
   if (conditions.length > 0) {

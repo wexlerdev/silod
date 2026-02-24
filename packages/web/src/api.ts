@@ -3,6 +3,9 @@ const BASE = import.meta.env.VITE_API_URL || "";
 export interface Item {
   id: number;
   content: string;
+  title: string | null;
+  due_date: string | null;
+  tags: string[];
   starred: boolean;
   created_at: string;
   completed_at: string | null;
