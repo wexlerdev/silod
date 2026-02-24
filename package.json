@@ -1,0 +1,11 @@
+{
+  "name": "silod",
+  "private": true,
+  "scripts": {
+    "dev:server": "pnpm --filter @silod/server dev",
+    "dev:web": "pnpm --filter @silod/web dev",
+    "build:server": "pnpm --filter @silod/server build",
+    "build:web": "pnpm --filter @silod/web build",
+    "migrate": "pnpm --filter @silod/server migrate"
+  }
+}

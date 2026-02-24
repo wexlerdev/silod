@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:neon.tech)",
+      "WebFetch(domain:render.com)",
+      "WebFetch(domain:pnpm.io)",
+      "WebFetch(domain:orm.drizzle.team)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:neon.com)",
+      "WebSearch",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(git init:*)",
+      "Bash(pnpm install:*)",
+      "Bash(which npm:*)",
+      "Bash(npm install:*)",
+      "Bash(pnpm config:*)",
+      "Bash(pnpm:*)",
+      "Bash(cd /Users/wex/Desktop/_PROJECTS/silod/packages/server && npx tsx -e \"\nimport dotenv from 'dotenv';\nimport { resolve, dirname } from 'path';\nimport { fileURLToPath } from 'url';\nconst __dirname = dirname\\(fileURLToPath\\(import.meta.url\\)\\);\ndotenv.config\\({ path: resolve\\(__dirname, '../../.env'\\) }\\);\nconsole.log\\('DATABASE_URL:', process.env.DATABASE_URL\\);\nconsole.log\\('type:', typeof process.env.DATABASE_URL\\);\n\" 2>&1)",
+      "Bash(node:*)"
+    ]
+  }
+}
